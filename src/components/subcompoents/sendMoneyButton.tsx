@@ -8,8 +8,10 @@ interface content{
 
 export function SendMoneyButton(props:content){
 
-    return <div className="bg-black text-white text-md rounded-md px-2 py-1 hover:cursor-pointer m-2"> 
-            <button onClick={props.onClick}>{props.label}</button>
-
-    </div>
+    return <button 
+        onClick={props.onClick}
+        className="bg-blue-600 text-white text-sm font-medium rounded-lg px-4 py-2 hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    >
+        {props.label}
+    </button>
 }
