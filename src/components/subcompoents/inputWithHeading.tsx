@@ -5,6 +5,7 @@ interface items{
     type:string,
     placeholder?:string,
     reference?:React.Ref<HTMLInputElement>
+    onChange:Function
 }
 
 export function InputwithHeading(props:items){

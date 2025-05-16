@@ -1,6 +1,6 @@
 import { AppBar } from "./subcompoents/AppBar";
 import { BalanceBar } from "./subcompoents/Balance";
-import { Users } from "./subcompoents/users";
+import {Users} from "./users"
 
 export function Dashboard(){
     return <>
