@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { AppBar } from "./subcompoents/AppBar";
 import { FormInput } from "./subcompoents/FormInput";
+import { MessagePopup } from "./subcompoents/MessagePopup";
 
 export function SendMoney() {
   const [searchParams] = useSearchParams();
@@ -96,28 +97,11 @@ export function SendMoney() {
         <div className="w-full max-w-2xl px-4 sm:px-6 lg:px-8">
           <div className="bg-blue-200 rounded-xl shadow-lg border border-blue-100 p-8 hover:shadow-xl transition-all">
             {showMessage && (
-              <div className={`p-4 rounded-lg shadow-lg ${
-                messageType === 'success' 
-                  ? 'bg-green-100 border border-green-400 text-green-700' 
-                  : 'bg-red-100 border border-red-400 text-red-700'
-              }`}>
-                <div className="flex items-center">
-                  <span className="mr-2 text-lg">
-                    {messageType === 'success' ? '✓' : '⚠'}
-                  </span>
-                  {message}
-                </div>
-                {messageType === 'success' && (
-                  <div className="mt-3 flex justify-center">
-                    <button
-                      onClick={() => navigate("/dashboard")}
-                      className="bg-green-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-700 transition-all"
-                    >
-                      Go to Dashboard
-                    </button>
-                  </div>
-                )}
-              </div>
+              <MessagePopup
+                type={messageType}
+                message={message}
+                showDashboardButton={messageType === 'success'}
+              />
             )}
 
             <div className="space-y-6">
