@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { InputBoxHeading } from "./subcompoents/InputBoxHeading";
 import axios from "axios";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { AppBar } from "./subcompoents/AppBar";

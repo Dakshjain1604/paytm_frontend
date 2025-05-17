@@ -13,44 +13,45 @@ export const Users = () => {
         })
     }, [filter])
 
-    return <>
-        <div className="px-4 py-6">
-            <div className="text-xl font-bold text-wh mb-4">
+    return (
+        <div className="px-2 py-4 sm:px-4 sm:py-6">
+            <div className="text-lg sm:text-xl font-bold text-wh mb-4">
                 Users
             </div>
-            <div className="mb-6">
+            <div className="mb-4 sm:mb-6">
                 <input 
                     onChange={(e) => { setfilter(e.target.value) }} 
                     type="text" 
                     placeholder="Search users..." 
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm sm:text-base"
                 />
             </div>
-            <div className="space-y-4">
+            {/* Responsive grid for user cards */}
+            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-0.5 sm:gap-4 justify-items-center">
                 {users.map(user => <User key={user._id} user={user} />)}
             </div>
         </div>
-    </>
+    )
 }
 
 function User({ user }) {
     const navigate = useNavigate();
-    return <div className="bg-blue-100 p-4 rounded-lg shadow-lg border border-gray-100 hover-scale flex justify-between items-center">
-        <div className="flex items-center gap-4">
-            <div className="rounded-full h-12 w-12 bg-blue-50 flex justify-center items-center">
-                <div className="text-xl font-semibold text-blue-600">
+    return (
+        <div className="bg-white rounded-2xl shadow-lg border border-blue-100 p-2 px-6 sm:p-4 sm:px-8 flex flex-col items-center w-full max-w-[140px] sm:max-w-xs min-h-[150px] sm:min-h-[200px] hover:scale-105 transition-all">
+            <div className="rounded-full h-8 w-8 sm:h-16 sm:w-16 bg-blue-100 flex justify-center items-center mb-1 sm:mb-4 border-2 border-blue-200">
+                <div className="text-base sm:text-2xl font-bold text-blue-600">
                     {user.firstName[0]}
                 </div>
             </div>
-            <div className="flex flex-col">
-                <div className="font-medium text-gray-800">
-                    {user.firstName} {user.lastName}
-                </div>
+            <div className="font-bold text-blue-700 text-xs sm:text-xl mb-10 sm:mb-12 text-center">
+                {user.firstName} {user.lastName}
             </div>
+            <button
+                onClick={() => { navigate("/send?id=" + user._id + "&name=" + user.firstName) }}
+                className="w-full bg-blue-600 border border-blue-700 text-white font-semibold py-1 sm:py-2 rounded-xl hover:bg-blue-700 transition-all text-xs sm:text-lg"
+            >
+                Send Money
+            </button>
         </div>
-        <SendMoneyButton 
-            onClick={(e) => { navigate("/send?id=" + user._id + "&name=" + user.firstName) }} 
-            label="Send Money"
-        />
-    </div>
+    );
 }

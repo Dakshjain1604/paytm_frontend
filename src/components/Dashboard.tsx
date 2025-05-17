@@ -1,13 +1,14 @@
 import { AppBar } from "./subcompoents/AppBar";
 import { BalanceBar } from "./subcompoents/Balance";
-import {Users} from "./users"
 
-export function Dashboard(){
+import { Users } from "./users"
+
+export function Dashboard() {
     return <>
         <div>
-            <div><AppBar/></div>
-            <div><BalanceBar Balance={10000}/></div>
-            <Users/>
+            <AppBar />
+            <BalanceBar />
+            <Users />
         </div>
     </>
 }

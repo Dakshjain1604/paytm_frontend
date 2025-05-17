@@ -33,4 +33,5 @@ export function MessagePopup({ type, message, showDashboardButton = false }: Mes
             )}
         </div>
     );
+    
 } 
