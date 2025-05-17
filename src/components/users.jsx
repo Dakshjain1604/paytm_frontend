@@ -37,7 +37,7 @@ export const Users = () => {
 function User({ user }) {
     const navigate = useNavigate();
     return (
-        <div className="bg-white rounded-2xl shadow-lg border border-blue-100 p-2 px-6 sm:p-4 sm:px-8 flex flex-col items-center w-full max-w-[140px] sm:max-w-xs min-h-[150px] sm:min-h-[200px] hover:scale-105 transition-all">
+        <div className="bg-white rounded-2xl shadow-lg border border-blue-100 p-2 pb-6 pt-6 mb-2 sm:p-4 sm:px-8 flex flex-col items-center w-full max-w-[140px] sm:max-w-xs min-h-[150px] sm:min-h-[200px] hover:scale-105 transition-all">
             <div className="rounded-full h-8 w-8 sm:h-16 sm:w-16 bg-blue-100 flex justify-center items-center mb-1 sm:mb-4 border-2 border-blue-200">
                 <div className="text-base sm:text-2xl font-bold text-blue-600">
                     {user.firstName[0]}
